@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { SlLike } from "react-icons/sl";
+import { GrCaretNext,GrCaretPrevious } from "react-icons/gr";
 import {
   addToFav,
   fetchMovies,
@@ -101,13 +102,13 @@ function MovieCard() {
               handlePage(page - 1);
             }}
           >
-            ← Previous
+            <GrCaretPrevious/>
           </p>
           <div className="grid grid-cols-5 md:grid-cols-10">
             {[...Array(Math.ceil(movies.length / 10))].map((_, i) => (
               <span
                 key={i}
-                className={`mx-1 flex items-center cursor-pointer rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105 ${
+                className={`mx-1 flex items-center cursor-pointer gap-2 rounded-md border border-gray-400 px-3 py-1 text-gray-900 hover:scale-105 ${
                   page === i + 1 ? "bg-gray-300" : ""
                 }`}
                 onClick={() => {
@@ -127,7 +128,7 @@ function MovieCard() {
               handlePage(page + 1);
             }}
           >
-            Next →
+          <GrCaretNext/>
           </p>
         </div>
       </div>
