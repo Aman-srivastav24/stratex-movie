@@ -61,7 +61,7 @@ function FavoriteMovies() {
                 </p>
                 <button
                   className="mt-2 inline-flex cursor-pointer items-center text-sm font-semibold text-white"
-                  onClick={() => handleRemoveFromFav(movie)}
+                  onClick={(event) => handleRemoveFromFav(movie,event)}
                 >
                   <SlLike className="text-[20px] text-red-500" />
                 </button>
