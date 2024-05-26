@@ -10,7 +10,8 @@ function FavoriteMovies() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
-  const handleRemoveFromFav = (movie) => {
+  const handleRemoveFromFav = (movie,event) => {
+    event.stopPropagation(); 
     dispatch(removeFromFav(movie));
   };
   const handleCardClick = (imdbUrl) => {
