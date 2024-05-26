@@ -16,6 +16,9 @@ export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
     reducers: {
       addToFav:(state,action)=>{
       state.favorites.push(action.payload);
+      },
+      removeFromFav: (state, action) => {
+        state.favorites = state.favorites.filter(movie => movie.id !== action.payload.id);
       }
     },
     extraReducers(builder) {
@@ -35,7 +38,7 @@ export const fetchMovies = createAsyncThunk('movies/fetchMovies', async () => {
     }
   })
 
-export const {addToFav} = MovieSlice.actions;
+export const {addToFav,removeFromFav} = MovieSlice.actions;
 export const selectAllMovie = (state) => state.movie.movies;
 export const selectAllFavorite = (state)=>state.movie.favorites;
 export default MovieSlice.reducer;
